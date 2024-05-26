@@ -4,9 +4,9 @@
 
 1. Clone the repository
 2. Create a `.env` file with the following variables:
-   PORT=3000
-   MONGODB_URI=mongodb://localhost:27017/propertyMatching
-   JWT_SECRET=your_jwt_secret
+   - PORT=3000
+   - MONGODB_URI=mongodb://localhost:27017/propertyMatching
+   - JWT_SECRET=your_jwt_secret
 3. Install packages
 
 ```sh
