@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: propertyMatching
+    restart: always
+
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/propertyMatching
+      - JWT_SECRET=397465fc2af495fc5d828e32236f746b40442314058348433cfcade6a1b5d506
+    depends_on:
+      - mongo
+    restart: always
+
+volumes:
+  mongo-data:
